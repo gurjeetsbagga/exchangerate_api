@@ -22,7 +22,7 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-CMD [ "npm", "run", "serve" ]
+CMD [ "npm", "run","serve" ]
 
 #EXPOSE 8080
 #CMD [ "http-server", "dist" ]
