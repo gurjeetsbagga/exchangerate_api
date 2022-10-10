@@ -1,0 +1,47 @@
+version: '3'
+services:
+  php:
+    container_name: php_exchange
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./php/asset/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - .:/var/www/html:rw
+    command: bash -c "php-fpm"
+    restart: always
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "3"
+  nginx:
+    container_name: nginx_exchange
+    image: nginx:1.17.9
+    command: ["nginx", "-g", "daemon off;"]
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    volumes:
+      - ./nginx/asset/:/etc/nginx/conf.d/
+      - ./nginx/log:/var/log/nginx/:rw
+      - .:/var/www/html:rw
+    ports:
+      - "82:80"
+    links:
+      - php
+    restart: always
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "3"
+#  vue-app:
+#    container_name: vue_exchange
+#    build:
+#      context: ./app/vue
+#      dockerfile: Dockerfile
+#    volumes:
+#      - '.:/app'
+#      - '/app/node_modules'
+#    ports:
+#      - '8081:8080'
