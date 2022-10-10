@@ -1,6 +1,6 @@
 <template>
   <div class="m-auto">
-    <h1>Currency Convekter</h1>
+    <h1>Currency Converter</h1>
     <section v-if="errored">
       <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
     </section>
