@@ -160,3 +160,5 @@
 172.24.0.1 - - [10/Oct/2022:12:56:05 +0000] "GET / HTTP/1.1" 200 1727 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 172.24.0.1 - - [10/Oct/2022:12:56:09 +0000] "GET /api/exchange_rate/usd HTTP/1.1" 404 650 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 172.24.0.1 - - [10/Oct/2022:12:57:47 +0000] "GET /api/exchange_rate/usd HTTP/1.1" 200 2589 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+172.29.0.1 - - [10/Oct/2022:14:30:50 +0000] "GET /api/exchange_rate/usd HTTP/1.1" 200 2589 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+172.30.0.1 - - [10/Oct/2022:14:33:43 +0000] "GET /api/exchange_rate/usd HTTP/1.1" 200 2589 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"

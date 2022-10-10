@@ -35,13 +35,15 @@ services:
       options:
         max-size: "1m"
         max-file: "3"
-#  vue-app:
-#    container_name: vue_exchange
-#    build:
-#      context: ./app/vue
-#      dockerfile: Dockerfile
-#    volumes:
-#      - '.:/app'
-#      - '/app/node_modules'
-#    ports:
-#      - '8081:8080'
+  vue-app:
+    container_name: vue_exchange
+    build:
+      context: ./app/vue
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/
+      - /var/www/node_module
+    depends_on:
+      - "php"
+    ports:
+      - '8081:8080'
