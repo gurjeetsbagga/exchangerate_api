@@ -59,7 +59,7 @@ $di->setShared(
         $adapterFactory = new AdapterFactory($serializerFactory);
         $options = [
             'defaultSerializer' => 'Php',
-            'lifetime' => 1
+            'lifetime' => $this->getConfig()->get('cache')->get('keep_time_min')
         ];
         $adapter = $adapterFactory->newInstance('apcu', $options);
         return new Cache($adapter);

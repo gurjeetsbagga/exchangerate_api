@@ -20,5 +20,9 @@ return new \Phalcon\Config([
             'url' => "https://v6.exchangerate-api.com/v6",
             'key' => "1e6c5b31c00e8ab77e7cef95",
             ]
-    ]
+    ],
+    'cache' => [
+        'keep_time_min' => 5*60
+    ],
+    'currencies' => [ "EUR", "GBP", "JPY", "CHF", "CAD", "AUD", "CNY", "ZAR", "BRL", "HKD", "MXN"]
 ]);

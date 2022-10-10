@@ -1,25 +1,13 @@
 
 FROM php:7.4-fpm
-#
+
 ## Install PHP extensions deps
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
-#           libfreetype6-dev \
            libpng-dev \
            libonig-dev \
            zlib1g-dev \
-#           g++ \
-#           libicu-dev \
-#           libmcrypt4 \
-#           libzip-dev \
-#        libjpeg62-turbo-dev \
-#        libmcrypt-dev \
-#        unixodbc-dev \
-#        libxml2-dev \
-#        libaio-dev \
         libmemcached-dev \
-#        freetds-dev \
-#	libssl-dev \
 	openssl
 
 # Install unzip utility and libs needed by zip PHP extension
@@ -30,10 +18,6 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-install zip
 
 ## Install Composer
-#RUN curl -sS https://getcomposer.org/installer | php -- \
-#        --install-dir=/usr/local/bin \
-#        --filename=composer
-# install composer
 RUN curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Whether or not to install Xdebug
@@ -94,21 +78,4 @@ RUN set -xe && \
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-
-
 RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
-
-## change the document root to /var/www/html/public
-#RUN sed -i -e "s/html/html\/public/g" \
-#
-## enable apache mod_rewrite
-#RUN a2enmod rewrite
-#
-#WORKDIR /var/www/html
-#
-#COPY . /var/www/html
-#COPY --from=vendor /app/vendor/ /var/www/html/vendor/
-#COPY --from=vuejs /app/public/js/ /var/www/html/public/js/
-#COPY --from=vuejs /app/public/css/ /var/www/html/public/css/
-#COPY --from=vuejs /app/mix-manifest.json /var/www/html/mix-manifest.json
-#

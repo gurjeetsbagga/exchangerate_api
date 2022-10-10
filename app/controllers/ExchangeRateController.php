@@ -12,7 +12,6 @@ class ExchangeRateController extends AbstractController
      */
     protected $exchangeRateService;
 
-
     public function onConstruct()
     {
         $this->exchangeRateService = new ExchangeRateService();
@@ -22,10 +21,9 @@ class ExchangeRateController extends AbstractController
      * @return mixed
      */
     public function getExchangeRateAction()
-    {
-       $response = $this->exchangeRateService->getData();
-       exit(json_encode($response));
-        if (!$this->cache->has("apis")) {
+    {return  $response = $this->exchangeRateService->getData();
+        if (false === $this->cache->has("apis")) {
+            $response = $this->exchangeRateService->getData();
             $this->cache->set('apis', $response);
         }
         return $this->cache->get('apis');

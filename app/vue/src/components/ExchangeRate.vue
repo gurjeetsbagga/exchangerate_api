@@ -1,6 +1,6 @@
 <template>
   <div class="m-auto">
-    <h1>Currency Converter</h1>
+    <h1>Currency Convekter</h1>
     <section v-if="errored">
       <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
     </section>
@@ -17,7 +17,7 @@
               <td><strong>1 {{info.base_code}} = </strong></td>
             </tr>
             <tr v-for="(key, value) in codes" :key="key">
-                <td>{{Countries[value]}}</td>
+                <td>{{value}}</td>
                 <td>{{key}}</td>
             </tr>
             <tr>
@@ -47,18 +47,6 @@ export default {
   name: "ExchangeRate",
   data() {
     return {
-      Countries : {
-        "EUR":"EURO",
-        "GBP":"British Pound Sterling",
-        "JPY":"Japanese Yen",
-        "CHF":"Swiss Franc",
-        "CAD":"Canadian Dollar",
-        "AUD":"Australian Dollar",
-        "CNY":"Chinese Yuan Renminbi",
-        "ZAR":"South African Rand",
-        "BRL":"Brazilian Real",
-        "HKD":"Hong Kong Dollar",
-        "MXN":"Mexican Peso"},
       info: null,
       codes: null,
       loading: false,
@@ -82,12 +70,13 @@ export default {
           this.info = response.data;
           var items = {};
           Object.keys(this.info.conversion_rates).forEach((value) => {
-            if (Object.keys(this.Countries).includes(value)) {
-              items[value] = this.info.conversion_rates[value];
-              }
+            console.log(value)
+            if (Object.keys(this.info.symbols).includes(value)) {
+              items[this.info.symbols[value]] = this.info.conversion_rates[value];
+            }
           });
           this.codes = items;
-          console.log(this.codes)
+          // console.log(this.codes)
           this.errored=false;
         })
         .catch(e => {
