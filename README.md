@@ -8,7 +8,7 @@ rates of a few well known currencies e.g. USD, EUR, CHF, AUD, CAD to GBP.
 
 ## Installation
 
-### Prerequisite System should have Docker & git
+### Prerequisite - System should have Docker & git
 
 First clone this respository from github with below command
 
@@ -33,6 +33,8 @@ Change permission to start.sh file
 Run start.sh file, which deploy and build container
 
 `chmod +x ./start.sh`
+
+#### **list of currencies need to display, should  mentioned in config file.
 
 ## Sample output of API for USD
 
