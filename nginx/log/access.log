@@ -157,3 +157,6 @@
 172.24.0.1 - - [10/Oct/2022:12:47:16 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost:82/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 172.24.0.1 - - [10/Oct/2022:12:47:40 +0000] "GET / HTTP/1.1" 200 1727 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 172.24.0.1 - - [10/Oct/2022:12:47:40 +0000] "GET /img/favicon.ico HTTP/1.1" 404 654 "http://localhost:82/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+172.24.0.1 - - [10/Oct/2022:12:56:05 +0000] "GET / HTTP/1.1" 200 1727 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+172.24.0.1 - - [10/Oct/2022:12:56:09 +0000] "GET /api/exchange_rate/usd HTTP/1.1" 404 650 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+172.24.0.1 - - [10/Oct/2022:12:57:47 +0000] "GET /api/exchange_rate/usd HTTP/1.1" 200 2589 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"

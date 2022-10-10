@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
+use Phalcon\Cache;
+use Phalcon\Cache\AdapterFactory;
 use Phalcon\Mvc\View\Simple as View;
+use Phalcon\Storage\SerializerFactory;
 use Phalcon\Url as UrlResolver;
 
 /**
@@ -34,25 +37,31 @@ $di->setShared('url', function () {
 });
 
 /**
- * Database connection is created based in the parameters defined in the configuration file
+ * Override response content type
  */
-$di->setShared('db', function () {
-    $config = $this->getConfig();
+$di->setShared(
+    'response',
+    function () {
+        $response = new \Phalcon\Http\Response();
+        $response->setContentType('application/json', 'utf-8');
 
-    $class = 'Phalcon\Db\Adapter\Pdo\\' . $config->database->adapter;
-    $params = [
-        'host'     => $config->database->host,
-        'username' => $config->database->username,
-        'password' => $config->database->password,
-        'dbname'   => $config->database->dbname,
-        'charset'  => $config->database->charset
-    ];
-
-    if ($config->database->adapter == 'Postgresql') {
-        unset($params['charset']);
+        return $response;
     }
+);
 
-    $connection = new $class($params);
-
-    return $connection;
-});
+/**
+ * Override response content type
+ */
+$di->setShared(
+    'cache',
+    function() {
+        $serializerFactory = new SerializerFactory();
+        $adapterFactory = new AdapterFactory($serializerFactory);
+        $options = [
+            'defaultSerializer' => 'Php',
+            'lifetime' => 1
+        ];
+        $adapter = $adapterFactory->newInstance('apcu', $options);
+        return new Cache($adapter);
+    }
+);

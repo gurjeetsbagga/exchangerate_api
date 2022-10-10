@@ -5,8 +5,10 @@
  */
 $loader = new \Phalcon\Loader();
 
-$loader->registerDirs(
+$loader->registerNamespaces(
     [
-        $config->application->modelsDir
+        'App\Services'    => realpath(__DIR__ . '/../services/'),
+        'App\Controllers' => realpath(__DIR__ . '/../controllers/'),
+        'App\Helpers' => realpath(__DIR__ . '/../helpers/'),
     ]
 )->register();
